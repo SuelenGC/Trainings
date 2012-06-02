@@ -1,4 +1,3 @@
-Tempo-Real-Eventos---Android
-============================
+Treinamentos
+============
 
-Curso de Android na Tempo Real Eventos

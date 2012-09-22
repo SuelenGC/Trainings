@@ -1,0 +1,29 @@
+package com.hello;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+public class TelaDetalhesDocumento extends Activity{
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.tela_detalhes_documento);
+		
+		//recupera o documento que veio como parametro
+		Documento doc = (Documento) getIntent().getSerializableExtra("documento");
+		
+		Log.i("temporeal", "Documento que chegou como parametro: " + doc.nome);
+		
+		TextView tNomeDoc = (TextView) findViewById(R.id.tNomeDocumento);
+		TextView tDescDoc = (TextView) findViewById(R.id.tDescDocumento);
+		
+		tNomeDoc.setText(doc.nome);
+		tDescDoc.setText(doc.descricao);
+		
+
+	}
+}

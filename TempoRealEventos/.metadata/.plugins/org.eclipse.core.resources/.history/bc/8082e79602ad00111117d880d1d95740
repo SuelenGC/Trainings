@@ -1,0 +1,41 @@
+package com.hello;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+/**
+ * 
+ * @author Jonas Baggio
+ * @create 18/05/2012
+ */
+public class BancoTempoReal extends SQLiteOpenHelper {
+	// Nome do banco
+	private static final String NOME_BANCO = "temporeal";
+
+	// Controle de versão
+	private static final int VERSAO_BANCO = 1;
+
+	public BancoTempoReal(Context context) {
+		super(context, NOME_BANCO, null, VERSAO_BANCO);
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		// Responsavel pelo SQL de criacao caso o banco de dados nao exista
+		String sql = "create table documento ( _id integer primary key autoincrement, nome text not null,descricao text not null);";
+		db.execSQL(sql);
+		
+		for (int i = 0; i < 50; i++) {
+			sql = "insert into documento(nome,descricao) values('Documento do Banco de Dados "+i+"','Descrição do banco "+i+"');";
+			db.execSQL(sql);
+		}
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// SQL de Update do teu banco de `oldVersion` para `newVersion`
+		Log.i("temporeal", "Agora script para atualizar de " + oldVersion + " para " + newVersion);
+	}
+}

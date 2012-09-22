@@ -1,0 +1,61 @@
+package br.temporeal.camera;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class ExemploCamera extends Activity {
+	protected static final String TAG = "temporeal";
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.camera);
+
+		ImageButton b = (ImageButton) findViewById(R.id.btAbrirCamera);
+		b.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				/**
+				 * http://developer.android.com/reference/android/provider/MediaStore.html#ACTION_IMAGE_CAPTURE
+				 */
+				try {
+					Intent i = new Intent("android.media.action.IMAGE_CAPTURE");
+					startActivityForResult(i, 2);
+				} catch (Exception e) {
+					Log.e(TAG, e.getMessage(), e);
+					Toast.makeText(ExemploCamera.this, "Erro ao iniciar a camera: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		if (data != null) {
+			Bundle bundle = data.getExtras();
+			if (bundle != null) {
+				// Recupera o Bitmap retornado pela câmera
+
+				Uri uri = data.getData();
+				Log.i("camera", "Uri " + uri);
+
+				Bitmap bitmap = (Bitmap) bundle.get("barcode_text");
+
+				ImageView img = (ImageView) findViewById(R.id.imagem);
+				img.setImageBitmap(bitmap);
+				
+			}
+		}
+	}
+}

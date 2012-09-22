@@ -1,0 +1,23 @@
+package com.hello;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Documento {
+
+	public String nome;
+	public String descricao;
+	
+	
+	//vai criar uma lista de documento em memoria
+	public static List<Documento> getListaDocumentos(){
+		List<Documento> list = new ArrayList<Documento>();
+		for (int i = 0; i < 20; i++) {
+			Documento doc = new Documento();
+			doc.nome = "Documento " + i;
+			doc.descricao = "Desc do documento " + i;
+			list.add(doc);
+		}
+		return list;
+	} 
+}

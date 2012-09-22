@@ -1,0 +1,50 @@
+package com.hello;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class TelaListaDocumento extends Activity implements OnItemClickListener{
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.tela_lista_documento);
+		
+		//recupera da intent o parametro passado na tela MainActivity
+		String loginParametro = getIntent().getStringExtra("login");
+		
+		//recupera o TextView
+		TextView tBoasVindas = (TextView) findViewById(R.id.labelBoasVindas);
+		//atribui o text do nosso labelBoasVindas
+		tBoasVindas.setText("Bem vindo, " + loginParametro);
+		
+		//recupera o listview do arquivo de layout
+		ListView listView = (ListView) findViewById(R.id.listview);
+		listView.setOnItemClickListener(this);
+		
+		//crio a lista de documentos
+		List<Documento> list = Documento.getListaDocumentos();
+
+		//crio o adapter para o listview
+		DocumentoAdapter docAdapter = new DocumentoAdapter(this, list);
+
+		//adiciono o adapter no listview
+		listView.setAdapter(docAdapter);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> adapter, View view, int pos, long id) {
+		Documento documento = (Documento) adapter.getAdapter().getItem(pos);	
+		
+		Log.i("temporeal", "Documento selecionado: " + documento.nome + " / " + documento.descricao);
+	}
+}

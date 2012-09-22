@@ -1,0 +1,160 @@
+package br.temporeal.mapa;
+
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+
+import com.google.android.maps.GeoPoint;
+import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
+import com.google.android.maps.MapView;
+
+/**
+ * Atualiza as coordenadas do GPS "mock" no Mapa
+ * 
+ * @author ricardo
+ * 
+ */
+public class ExemploMapaGPS extends MapActivity implements LocationListener {
+
+	private static final String CATEGORIA = "temporeal";
+	private MapController controlador;
+	private MapView mapa;
+	private ImagemOverlay overlay;
+	private Location lastLocation;
+
+	@Override
+	public void onCreate(Bundle icicle) {
+		super.onCreate(icicle);
+		Log.i(CATEGORIA,"ExemploMapaGPS.onCreate");
+
+		setContentView(R.layout.mapview);
+		
+		mapa = (MapView) findViewById(R.id.mapa);
+		mapa.setClickable(true);
+		mapa.setSatellite(true);
+
+		controlador = mapa.getController();
+		controlador.setZoom(16);
+		mapa.setBuiltInZoomControls(true);
+
+		// Centraliza o mapa na última localização conhecida
+		LocationManager locationManager = getLocationManager();
+		Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		
+		GeoPoint coordenada = null;
+
+		// Se existe última localização converte para GeoPoint
+		if (location != null) {
+			coordenada = new GeoPoint((int)(location.getLatitude()*1E6),(int)( location.getLongitude()*1E6));
+			Log.i(CATEGORIA, "Ultima localizacao: " + coordenada);
+
+			controlador.setCenter(coordenada);
+		} else {
+			Log.i(CATEGORIA, "fix localizacao: " + coordenada);
+			coordenada = new GeoPoint((int)(-25.443195*1E6),(int)(-49.280977*1E6));
+			controlador.setCenter(coordenada);
+		}
+
+		overlay = new ImagemOverlay(coordenada, R.drawable.smile);
+		mapa.getOverlays().add(overlay);
+
+		// GPS listener
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.onCreateOptionsMenu(menu);
+		menu.add(0, 0, 0, "Satelite");
+		menu.add(0, 1, 1, "Rua");
+		return true;
+	}
+
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		// Clicou no menu
+		switch (item.getItemId()) {
+		case 0:
+			// Satelite
+			mapa.setSatellite(true);
+			mapa.setStreetView(false);
+			mapa.setTraffic(false);
+			break;
+		case 1:
+			// Rua
+			mapa.setStreetView(true);
+			mapa.setSatellite(false);
+			mapa.setTraffic(false);
+			break;
+		}
+		return true;
+	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		boolean b = super.onTouchEvent(event);
+		
+		int x = (int) event.getX();
+		int y = (int) event.getX();
+		GeoPoint geopoint = mapa.getProjection().fromPixels(x,y);
+		Log.i(CATEGORIA, "onTouchEvent: " + geopoint);
+		return b;
+	}
+
+	private LocationManager getLocationManager() {
+		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		return locationManager;
+	}
+
+	public void onLocationChanged(Location location) {
+		this.lastLocation = location;
+		Log.i(CATEGORIA, "latitude: " + location.getLatitude() + " , longitude: " + location.getLongitude());
+		
+		if(lastLocation != null){
+			Log.i(CATEGORIA, "Distancia: " + location.distanceTo(lastLocation));
+		}
+
+		int latitude = (int) (location.getLatitude() * 1E6);
+		int longitude = (int) (location.getLongitude() * 1E6);
+		GeoPoint coordenada = new GeoPoint(latitude, longitude);
+
+		// Atualiza a coordenada da bolinha
+		overlay.setCoordenada(coordenada);
+
+		// Anima o mapa até a nova localização
+		controlador.animateTo(coordenada);
+
+		// Invalida para desenhar o mapa novamente
+		mapa.invalidate();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		// Remove o listener para não ficar rodando depois de sair
+		getLocationManager().removeUpdates(this);
+	}
+	@Override
+	protected boolean isRouteDisplayed() {
+		return false;
+	}
+
+	public void onStatusChanged(java.lang.String s, int status, Bundle extras) {
+      Log.d(CATEGORIA, "onStatusChanged: " + status);
+    }
+
+    public void onProviderEnabled(java.lang.String s) {
+      Log.d(CATEGORIA, "onProviderEnabled: " + s);
+    }
+
+    public void onProviderDisabled(java.lang.String s) {
+      Log.d(CATEGORIA, "onProviderDisabled: " + s);
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+	<include layout="@layout/include_header"/>    
+
+	<!-- START layout principal da nossa tela -->
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:layout_margin="10dp"
+	    android:orientation="vertical"
+	    >
+	   
+	    <include layout="@layout/documento_item"/>
+	   
+	   
+	    
+	    
+	</LinearLayout>
+	<!-- END layout principal da nossa tela -->
+	
+	<include layout="@layout/include_footer"/>
+</LinearLayout>

@@ -1,0 +1,14 @@
+package com.hello;
+
+import java.util.List;
+
+public class Documento {
+
+	public String cod;
+	public String nome;
+	
+	public static List<Documento> getList(){
+		
+	}
+	
+}

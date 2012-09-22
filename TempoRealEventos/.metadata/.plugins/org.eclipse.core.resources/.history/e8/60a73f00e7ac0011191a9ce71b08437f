@@ -1,0 +1,7 @@
+package com.hello;
+
+import android.widget.BaseAdapter;
+
+public class DocumentoAdapter extends BaseAdapter{
+
+}

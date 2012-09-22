@@ -1,0 +1,26 @@
+package com.hello;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends Activity {
+	
+    private EditText tLogin;
+	private EditText tSenha;
+	private Button btLogin;
+
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        setContentView(R.layout.main);
+        
+        tLogin = (EditText) findViewById(R.id.tLogin);
+        tSenha = (EditText) findViewById(R.id.tSenha);
+        btLogin = (Button) findViewById(R.id.btLogin);
+        btLogin.setOnClickListener(this);
+        
+    }
+}

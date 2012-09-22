@@ -1,0 +1,100 @@
+8
+
+dir
+1668
+http://svn.livroandroid.com.br/TempoReal/TempoRealSms
+http://svn.livroandroid.com.br
+
+
+
+2011-03-20T00:07:42.899036Z
+1425
+rlecheta
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+357538aa-828e-4d36-ac90-2cbde2e1d2ae
+
+.classpath
+file
+
+
+
+
+2011-05-20T17:04:30.635000Z
+3af32913a5e8421783c06ef924738ba8
+2010-06-02T17:44:29.852477Z
+45
+rlecheta
+
+.project
+file
+
+
+
+
+2011-05-20T17:04:30.665000Z
+d6a9242faa0883fce22b246b53588c9a
+2010-06-02T17:44:29.852477Z
+45
+rlecheta
+
+AndroidManifest.xml
+file
+
+
+
+
+2011-05-20T17:04:30.710000Z
+4e2f27f6b0665470b801585534e3727d
+2011-03-20T00:07:42.899036Z
+1425
+rlecheta
+
+changelog.txt
+file
+
+
+
+
+2011-05-20T17:04:30.672000Z
+e4e705cf66f388ad4ecdca14ef8ad6fd
+2010-06-02T17:44:29.852477Z
+45
+rlecheta
+
+default.properties
+file
+
+
+
+
+2011-05-20T17:04:30.629000Z
+bf579c10f8aaec311b9697b376fab1fa
+2011-03-18T12:51:00.471560Z
+1408
+rlecheta
+
+gen
+dir
+
+lib
+dir
+
+res
+dir
+
+src
+dir
+

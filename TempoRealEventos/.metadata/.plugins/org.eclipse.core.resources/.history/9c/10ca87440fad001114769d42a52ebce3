@@ -1,0 +1,79 @@
+package com.hello;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends Activity implements OnClickListener {
+	
+	private final String LOGIN = "admin";
+	private final String SENHA = "123";
+	
+	private String loginClick = null;
+	private String senhaClick = null;
+	
+    private EditText tLogin;
+	private EditText tSenha;
+	private Button btLogin;
+
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        setContentView(R.layout.main);
+        
+        tLogin = (EditText) findViewById(R.id.tLogin);
+        tSenha = (EditText) findViewById(R.id.tSenha);
+        btLogin = (Button) findViewById(R.id.btLogin);
+        btLogin.setOnClickListener(this);
+        
+        
+        setText();
+                
+    }
+
+	private void setText() {
+		tLogin.setText(loginClick);
+        tSenha.setText(senhaClick);
+	}
+
+	@Override
+	public void onClick(View view) {
+		if(view == btLogin){
+			
+			String login = tLogin.getText().toString();
+			String senha = tSenha.getText().toString();
+			
+			Log.i("temporeal", "Login informado: " + login);
+			Log.i("temporeal", "Senha informada: " + senha);
+			
+			
+			//se o login informado esta ok
+			if(LOGIN.equals(login) && SENHA.equals(senha)){
+				Log.i("temporeal", "Login realizado com sucesso!");
+				Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_LONG).show();
+				
+				//crio a intencao de abrir a TelaListaDocumento
+				Intent intent = new Intent(this, TelaListaDocumento.class);
+				
+				intent.putExtra("login", login);
+				//manda abrir a tela
+				startActivity(intent);
+
+			}else{
+				Log.e("temporeal", "Login ou senha invalidos!");
+				Toast.makeText(this, "Login ou senha invalidos!", Toast.LENGTH_LONG).show();
+			}			
+			
+		}else {
+			
+		}
+	}
+	
+}

@@ -1,0 +1,109 @@
+8
+
+dir
+1668
+http://svn.livroandroid.com.br/TempoReal/TempoRealMapa
+http://svn.livroandroid.com.br
+
+
+
+2011-03-18T12:36:00.759703Z
+1401
+rlecheta
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+357538aa-828e-4d36-ac90-2cbde2e1d2ae
+
+.classpath
+file
+
+
+
+
+2011-05-20T17:05:24.014000Z
+8ec20b14df17ef83253beda6c391f516
+2010-06-02T17:31:07.124337Z
+37
+rlecheta
+
+.project
+file
+
+
+
+
+2011-05-20T17:05:24.074000Z
+44ccd09517e8f9eb4f4b3480b5609b03
+2010-06-02T17:31:07.124337Z
+37
+rlecheta
+
+.settings
+dir
+
+AndroidManifest.xml
+file
+
+
+
+
+2011-05-20T17:05:24.088000Z
+f7bb09094e069835ba9adaf96ae95836
+2010-06-02T17:31:07.124337Z
+37
+rlecheta
+
+GPS
+dir
+
+KeyTool
+dir
+
+changelog.txt
+file
+
+
+
+
+2011-05-20T17:05:24.081000Z
+9cab2d0071adf6ab6a84c23d7a4cfc1e
+2010-06-02T17:31:07.124337Z
+37
+rlecheta
+
+default.properties
+file
+
+
+
+
+2011-05-20T17:05:24.007000Z
+4e25e5e0144acabafcdc15d86f52d141
+2011-03-18T12:36:00.759703Z
+1401
+rlecheta
+
+gen
+dir
+
+img
+dir
+
+res
+dir
+
+src
+dir
+

@@ -1,0 +1,64 @@
+8
+
+dir
+1668
+http://svn.livroandroid.com.br/TempoReal/TempoRealMapa/GPS
+http://svn.livroandroid.com.br
+
+
+
+2011-03-18T12:36:00.759703Z
+1401
+rlecheta
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+357538aa-828e-4d36-ac90-2cbde2e1d2ae
+
+Sete de Setembro - Curitiba.kml
+file
+
+http://svn.livroandroid.com.br/TempoReal/TempoRealMapa/GPS/Sete%20de%20Setembro%20-%20Curitiba.kml
+
+
+2011-05-20T17:05:24.546000Z
+104aac6917d46be0df4d767f983a736a
+2010-06-02T17:31:07.124337Z
+37
+rlecheta
+
+gps
+file
+
+
+
+
+2011-05-20T17:05:24.538000Z
+df925b96bd8c455b88b21f6c32c723be
+2010-06-02T17:31:07.124337Z
+37
+rlecheta
+
+keystore.txt
+file
+
+
+
+
+2011-05-20T17:05:24.532000Z
+a2536c1bd4383147cdc97174e8825dc5
+2011-03-18T12:36:00.759703Z
+1401
+rlecheta
+

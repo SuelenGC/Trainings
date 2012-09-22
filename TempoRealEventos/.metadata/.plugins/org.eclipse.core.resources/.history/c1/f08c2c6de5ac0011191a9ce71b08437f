@@ -1,0 +1,22 @@
+package com.hello;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class TelaListaDocumento extends Activity{
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.tela_lista_documento);
+		
+		//recupera da intent o parametro passado na tela MainActivity
+		String loginParametro = getIntent().getStringExtra("login");
+		
+		TextView tBoasVindas = (TextView) findViewById(R.id.labelBoasVindas);
+		tBoasVindas.setText("Bem vindo, " + loginParametro);
+
+	}
+}

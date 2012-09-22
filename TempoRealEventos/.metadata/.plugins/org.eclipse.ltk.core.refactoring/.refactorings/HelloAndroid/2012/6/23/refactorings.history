@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private void setText()&apos; from &apos;com.hello.MainActivity.onCreate()&apos; to &apos;com.hello.MainActivity&apos;&#x0D;&#x0A;- Original project: &apos;HelloAndroid&apos;&#x0D;&#x0A;- Method name: &apos;setText&apos;&#x0D;&#x0A;- Destination type: &apos;com.hello.MainActivity&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;setText&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;com.hello{MainActivity.java" name="setText" replace="false" selection="995 63" stamp="1338681663137" version="1.0" visibility="2"/>
+</session>

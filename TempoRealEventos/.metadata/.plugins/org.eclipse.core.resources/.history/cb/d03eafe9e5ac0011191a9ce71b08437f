@@ -1,0 +1,12 @@
+package com.hello;
+
+public class Documento {
+
+	public String cod;
+	public String nome;
+	
+	public static List<Documento> getList(){
+		
+	}
+	
+}

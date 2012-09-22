@@ -1,0 +1,47 @@
+package com.hello;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends Activity implements OnClickListener {
+	
+	private final String LOGIN = "admin";
+	private final String SENHA = "123";
+	
+	
+    private EditText tLogin;
+	private EditText tSenha;
+	private Button btLogin;
+
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        setContentView(R.layout.main);
+        
+        tLogin = (EditText) findViewById(R.id.tLogin);
+        tSenha = (EditText) findViewById(R.id.tSenha);
+        btLogin = (Button) findViewById(R.id.btLogin);
+        btLogin.setOnClickListener(this);
+        
+    }
+
+	@Override
+	public void onClick(View view) {
+		if(view == btLogin){
+			
+			String login = tLogin.getText().toString();
+			String senha = tSenha.getText().toString();
+			
+			if(LOGIN.equals(login) && SENHA)
+			
+			
+		}else {
+			
+		}
+	}
+}

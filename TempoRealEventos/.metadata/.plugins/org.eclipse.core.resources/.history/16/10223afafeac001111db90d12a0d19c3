@@ -1,0 +1,89 @@
+package com.hello;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+public class Documento implements Serializable {
+
+	public String nome;
+	public String descricao;
+	
+	
+	//vai criar uma lista de documento em memoria
+	public static List<Documento> getListaDocumentos(){
+		List<Documento> list = new ArrayList<Documento>();
+		for (int i = 0; i < 20; i++) {
+			Documento doc = new Documento();
+			doc.nome = "Documento " + i;
+			doc.descricao = "Desc do documento " + i;
+			list.add(doc);
+		}
+		return list;
+	} 
+	
+	public static List<Documento> getDocumentosBanco(Context context) throws IOException {
+		List<Documento> docs = new ArrayList<Documento>();
+		BancoTempoReal b = new BancoTempoReal(context);
+		
+		SQLiteDatabase db = null;
+		
+		try {
+			db = b.getWritableDatabase();
+			ContentValues valores = new ContentValues();
+			valores.put("nome", "Teste");
+			valores.put("descricao", "Teste Desc");
+			db.insert("documento", null, valores );
+			db.close();
+			
+			db = b.getReadableDatabase();
+			Cursor cursor = db.query("documento", null, null, null, null, null, null, null);
+			while(cursor.moveToNext()) {
+				int idxNome = cursor.getColumnIndex("nome");
+				int idxDescricao = cursor.getColumnIndex("descricao");
+				String nome = cursor.getString(idxNome);
+				String desc = cursor.getString(idxDescricao);
+				
+				Documento doc = new Documento();
+				doc.nome = nome;
+				doc.descricao = desc;
+				
+				docs.add(doc);
+			}
+			
+		} finally {
+			if(db != null) {
+				db.close();
+			}
+		}
+		return docs;
+	}
+
+//	public static List<Documento> getDocumentosWeb() throws IOException {
+//		List<Documento> docs = new ArrayList<Documento>();
+//		String url = "http://www.mobilinkdev.com.br/temporeal/documento.xml";
+//		Http http = new Http();
+//		String xml = http.doGet(url);
+//		Log.i("temporeal",xml);
+//		Node root = (Node) XML.getRoot(xml, "UTF-8");
+//		List<Node> nodeDocs = XML.getChildren(root, "doc");
+//		for (Node node : nodeDocs) {
+//			String nome = XML.getText(node, "nome");
+//			String desc = XML.getText(node, "desc");
+//
+//			Documento doc = new Documento();
+//			doc.nome = nome;
+//			doc.descricao = desc;
+//			
+//			docs.add(doc);
+//		}
+//		return docs;
+//	}
+
+}

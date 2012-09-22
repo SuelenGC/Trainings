@@ -1,0 +1,109 @@
+8
+
+dir
+1668
+http://svn.livroandroid.com.br/TempoReal/TempoReal
+http://svn.livroandroid.com.br
+
+
+
+2011-03-18T12:50:53.535976Z
+1407
+rlecheta
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+357538aa-828e-4d36-ac90-2cbde2e1d2ae
+
+.classpath
+file
+
+
+
+
+2011-05-20T17:06:14.560000Z
+8ec20b14df17ef83253beda6c391f516
+2010-06-02T17:20:45.559955Z
+33
+rlecheta
+
+.project
+file
+
+
+
+
+2011-05-20T17:06:14.566000Z
+c379ad9ee67e84d38db8f881b2d67230
+2010-06-02T17:20:45.559955Z
+33
+rlecheta
+
+AVD.bat
+file
+
+
+
+
+2011-05-20T17:06:14.527000Z
+aa42d4b9e6e85a0ebb86b82df218ee96
+2010-06-02T17:20:45.559955Z
+33
+rlecheta
+
+AndroidManifest.xml
+file
+
+
+
+
+2011-05-20T17:06:14.613000Z
+7c49a1e6b2176fadb9926ee82c8153cf
+2010-06-02T17:20:45.559955Z
+33
+rlecheta
+
+changelog.txt
+file
+
+
+
+
+2011-05-20T17:06:14.595000Z
+bebd225e814b45d70af077dd66ae3a3d
+2010-06-02T17:20:45.559955Z
+33
+rlecheta
+
+default.properties
+file
+
+
+
+
+2011-05-20T17:06:14.553000Z
+bf579c10f8aaec311b9697b376fab1fa
+2011-03-18T12:50:53.535976Z
+1407
+rlecheta
+
+gen
+dir
+
+res
+dir
+
+src
+dir
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+    
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="70dp"
+	    android:background="#ff3366"
+	    android:gravity="center"
+	    >
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Tempo Real - 2012"	        
+	        
+	        />    
+	    
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    >
+	    
+	    <TableLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:stretchColumns="1"
+	        >
+	        
+	        <TableRow>
+
+	        	<TextView 
+	        	    android:layout_width="70dp"
+	        	    android:layout_height="wrap_content"
+	        	    android:text="Login:"
+	        	    />
+	        	<EditText 
+	        	    android:layout_width="fill_parent"
+	        	    android:layout_height="wrap_content"
+	        	    />    
+	        </TableRow>
+	        	
+	        </TableLayout>
+	    
+	    
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="35dp"
+	    android:background="#ffffff"
+	    android:gravity="center"
+	    >
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Android"	        
+	        
+	        />    
+	 </LinearLayout>
+</LinearLayout>

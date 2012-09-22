@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract constant &apos;ANDROID_MEDIA_ACTION_IMAGE_CAPTURE&apos; from expression &apos;&quot;android.media.action.IMAGE_CAPTURE&quot;&apos;&#x0D;&#x0A;- Original project: &apos;TempoRealCamera&apos;&#x0D;&#x0A;- Constant name: &apos;ANDROID_MEDIA_ACTION_IMAGE_CAPTURE&apos;&#x0D;&#x0A;- Constant expression: &apos;&quot;android.media.action.IMAGE_CAPTURE&quot;&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;&#x0D;&#x0A;- Replace occurrences of expression with constant" description="Extract constant &apos;ANDROID_MEDIA_ACTION_IMAGE_CAPTURE&apos;" flags="786432" id="org.eclipse.jdt.ui.extract.constant" input="/src&lt;br.temporeal.camera{ExemploCamera.java" name="ANDROID_MEDIA_ACTION_IMAGE_CAPTURE" qualify="false" replace="true" selection="938 36" stamp="1338683637411" version="1.0" visibility="2"/>
+</session>
